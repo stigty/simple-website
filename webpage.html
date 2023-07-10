@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Art Portfolio</title>
+    <style>
+        body {
+            font-family: "Arial Black", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') center/cover;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin: 50px 0;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #444;
+            padding: 30px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .artwork {
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .artwork h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 10px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .artwork img {
+            display: block;
+            max-width: 75%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease-in-out;
+            border: 5px solid #ffcc00;
+            box-sizing: border-box;
+        }
+        
+        .artwork img.zoom-rotate {
+            animation: rotate-zoom 1s forwards;
+        }
+        
+        @keyframes rotate-zoom {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+        
+        .artwork p {
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
+        @keyframes neon-glow {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffcc00, 0 0 40px #ffcc00, 0 0 50px #ffcc00, 0 0 60px #ffcc00;
+            }
+            100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffcc00, 0 0 50px #ffcc00, 0 0 60px #ffcc00, 0 0 70px #ffcc00;
+            }
+        }
+        
+        .artwork:hover h2 {
+            animation: neon-glow 0.8s infinite alternate;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var artworkImages = document.querySelectorAll('.artwork img');
+            for (var i = 0; i < artworkImages.length; i++) {
+                artworkImages[i].addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('zoom-rotate')) {
+                        this.classList.add('zoom-rotate');
+                        setTimeout(function() {
+                            this.classList.remove('zoom-rotate');
+                        }.bind(this), 1000);
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Art Portfolio</h1>
+        
+        <div class="artwork">
+            <h2>Leave My Boy Out Of This</h2>
+            <img src="My Boy 1.png" alt="Artwork 1">
+            <p>Behold, a black and white masterpiece capturing the essence of existentialism. A large, minimalist turtle stands in stark contrast to a diminutive goose, adorned with a fedora that speaks volumes of its intellectual prowess. Though small in stature, the goose adopts the role of a paternal figure, challenging society's perceptions of hierarchical norms. Above this iconic duo, the phrase "You leave my boy out of this" transcends mere words, encapsulating the protective love shared between the unconventional pair.</p>
+        </div>
+        
+        <div class="artwork">
+            <h2>Don't Talk to My Son</h2>
+            <img src="My Boy 2.png" alt="Artwork 2">
+            <p>This mesmerizing monochromatic illustration transports us into a realm of allegory and social commentary. A majestic goose, garbed in an avant-garde fedora, takes center stage alongside a minute human man. The roles are reversed, as the goose assumes the role of the father figure, challenging traditional norms of kinship. In this minimalistic portrayal, the phrase "Don't talk to me or my son ever again" hovers above them, embodying the protective instincts of the father-goose and their inseparable bond.</p>
+        </div>
+        
+        <div class="artwork">
+            <h2>Leave My Boy Alone</h2>
+            <img src="My Boy 3.png" alt="Artwork 3">
+            <p>Prepare to be enthralled by the captivating elegance of this black and white composition. A grand capybara and a diminutive guinea pig form an enigmatic duo, exuding an aura of familial protection. The guinea pig, donning a sophisticated fedora, assumes the role of the father figure in this symbiotic relationship. Above them, the resolute phrase "You leave my boy alone" echoes a powerful plea, resonating with the unyielding devotion and defense of the cherished bond they share.</p>
+        </div>
+    </div>
+</body>
+</html>
